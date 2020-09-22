@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CHESS</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+	<link href='https://fonts.googleapis.com/css?family=Alegreya Sans SC' rel='stylesheet'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style type="text/css">
+		html{
+			background-image: url("texture.jpg");
+			background-size: 1980px 1080px;
+		}
+		div{
+			float: left;
+			height: 70px;
+			width: 70px;
+			font-size: 0px;
+			text-align: center;
+		}
+		#board *:hover {
+    		transition: 0.3s;
+    		background-color: skyblue;
+		}
+		#board{
+			height: 560px;
+			width: 560px;
+			border: 5px solid brown;
+			margin-left: 32%;
+			margin-top: 5%;
+			box-shadow: 10px 20px 40px brown;
+		}
+
+		.a{
+			background:brown;
+		}
+		.b{
+			background:coral;
+		}
+		#bl{
+			color: black;
+			font-size: 50px;
+			text-shadow: 5px 2px 4px white;
+		}
+		#wh{
+			font-size: 50px;
+			color: white;
+			text-shadow: 5px 2px 4px black;
+		}
+		p{
+			font-size: 40px;
+			color:tomato;
+			margin-top: 10%;
+			margin-left: 5%;
+			float: left;
+			font-family: 'Alegreya Sans SC';
+		}
+		button{
+			height: 70px;
+			width: 200px;
+			background: brown;
+			color:grey;
+			font-family: 'Alegreya Sans SC';
+			font-size: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div id="board">
+		<div id="_8">
+			<div class="a" id="_81" onclick="myfunc(this)">
+				<i class="fas fa-chess-rook" id="bl"></i>e</div>
+			<div class="b" id="_82" onclick="myfunc(this)">
+				<i class="fas fa-chess-pawn" id="bl"></i>p</div>
+			<div class="a" id="_83" onclick="myfunc(this)"></div>
+			<div class="b" id="_84" onclick="myfunc(this)"></div>
+			<div class="a" id="_85" onclick="myfunc(this)"></div>
+			<div class="b" id="_86" onclick="myfunc(this)"></div>
+			<div class="a" id="_87" onclick="myfunc(this)">
+				<i class="fas fa-chess-pawn" id="wh"></i>P</div>
+			<div class="b" id="_88" onclick="myfunc(this)">
+				<i class="fas fa-chess-rook" id="wh"></i>E</div>
+		</div>
+		<div id="_7">
+			<div class="b" id="_71" onclick="myfunc(this)">
+			<i class="fas fa-chess-knight" id="bl"></i>n</div>
+			<div class="a" id="_72" onclick="myfunc(this)">
+			<i class="fas fa-chess-pawn" id="bl"></i>p</div>
+			<div class="b" id="_73" onclick="myfunc(this)"></div>
+			<div class="a" id="_74" onclick="myfunc(this)"></div>
+			<div class="b" id="_75" onclick="myfunc(this)"></div>
+			<div class="a" id="_76" onclick="myfunc(this)"></div>
+			<div class="b" id="_77" onclick="myfunc(this)">
+			<i class="fas fa-chess-pawn" id="wh"></i>P</div>
+			<div class="a" id="_78" onclick="myfunc(this)">
+				<i class="fas fa-chess-knight" id="wh"></i>N</div>
+		</div>
+		<div id="_6">
+			<div class="a" id="_61" onclick="myfunc(this)">
+				<i class="fas fa-chess-bishop" id="bl"></i>b</div>
+			<div class="b" id="_62" onclick="myfunc(this)">
+				<i class="fas fa-chess-pawn" id="bl"></i>p</div>
+			<div class="a" id="_63" onclick="myfunc(this)"></div>
+			<div class="b" id="_64" onclick="myfunc(this)"></div>
+			<div class="a" id="_65" onclick="myfunc(this)"></div>
+			<div class="b" id="_66" onclick="myfunc(this)"></div>
+			<div class="a" id="_67" onclick="myfunc(this)">
+			<i class="fas fa-chess-pawn" id="wh"></i>P</div>
+			<div class="b" id="_68" onclick="myfunc(this)">
+				<i class="fas fa-chess-bishop" id="wh"></i>B</div>
+		</div>
+		<div id="_5">
+			<div class="b" id="_51" onclick="myfunc(this)">
+				<i class="fas fa-chess-queen" id="bl"></i>q</div>
+			<div class="a" id="_52" onclick="myfunc(this)">
+				<i class="fas fa-chess-pawn" id="bl"></i>p</div>
+			<div class="b" id="_53" onclick="myfunc(this)"></div>
+			<div class="a" id="_54" onclick="myfunc(this)"></div>
+			<div class="b" id="_55" onclick="myfunc(this)"></div>
+			<div class="a" id="_56" onclick="myfunc(this)"></div>
+			<div class="b" id="_57" onclick="myfunc(this)">
+			<i class="fas fa-chess-pawn" id="wh"></i>P</div>
+			<div class="a" id="_58" onclick="myfunc(this)">
+				<i class="fas fa-chess-queen" id="wh"></i>Q</div>
+		</div>
+		<div id="_4">
+			<div class="a" id="_41" onclick="myfunc(this)">
+				<i class="fas fa-chess-king" id="bl"></i>k</div>
+			<div class="b" id="_42" onclick="myfunc(this)">
+				<i class="fas fa-chess-pawn" id="bl"></i>p</div>
+			<div class="a" id="_43" onclick="myfunc(this)"></div>
+			<div class="b" id="_44" onclick="myfunc(this)"></div>
+			<div class="a" id="_45" onclick="myfunc(this)"></div>
+			<div class="b" id="_46" onclick="myfunc(this)"></div>
+			<div class="a" id="_47" onclick="myfunc(this)">
+			<i class="fas fa-chess-pawn" id="wh"></i>P</div>
+			<div class="b" id="_48" onclick="myfunc(this)">
+			<i class="fas fa-chess-king" id="wh"></i>K</div>
+		</div>
+		<div id="_3">
+			<div class="b" id="_31" onclick="myfunc(this)">
+				<i class="fas fa-chess-bishop" id="bl"></i>b</div>
+			<div class="a" id="_32"onclick="myfunc(this)">
+				<i class="fas fa-chess-pawn" id="bl"></i>p</div>
+			<div class="b" id="_33"onclick="myfunc(this)"></div>
+			<div class="a" id="_34" onclick="myfunc(this)"></div>
+			<div class="b" id="_35" onclick="myfunc(this)"></div>
+			<div class="a" id="_36" onclick="myfunc(this)"></div>
+			<div class="b" id="_37" onclick="myfunc(this)">
+			<i class="fas fa-chess-pawn" id="wh"></i>P</div>
+			<div class="a" id="_38" onclick="myfunc(this)">
+				<i class="fas fa-chess-bishop" id="wh"></i>B</div>
+		</div>
+		<div id="_2">
+			<div class="a" id="_21" onclick="myfunc(this)">
+				<i class="fas fa-chess-knight" id="bl"></i>n</div>
+			<div class="b" id="_22" onclick="myfunc(this)">
+				<i class="fas fa-chess-pawn" id="bl"></i>p</div>
+			<div class="a" id="_23" onclick="myfunc(this)"></div>
+			<div class="b" id="_24" onclick="myfunc(this)"></div>
+			<div class="a" id="_25" onclick="myfunc(this)"></div>
+			<div class="b" id="_26" onclick="myfunc(this)"></div>
+			<div class="a" id="_27" onclick="myfunc(this)">
+			<i class="fas fa-chess-pawn" id="wh"></i>P</div>
+			<div class="b" id="_28" onclick="myfunc(this)">
+				<i class="fas fa-chess-knight" id="wh"></i>N</div>
+		</div>
+		<div id="_1">
+			<div class="b" id="_11" onclick="myfunc(this)">
+				<i class="fas fa-chess-rook" id="bl"></i>e</div>
+			<div class="a" id="_12" onclick="myfunc(this)">
+			<i class="fas fa-chess-pawn" id="bl"></i>p</div>
+			<div class="b" id="_13" onclick="myfunc(this)"></div>
+			<div class="a" id="_14" onclick="myfunc(this)"></div>
+			<div class="b" id="_15" onclick="myfunc(this)"></div>
+			<div class="a" id="_16" onclick="myfunc(this)"></div>
+			<div class="b" id="_17" onclick="myfunc(this)">
+				<i class="fas fa-chess-pawn" id="wh"></i>P</div>
+			<div class="a" id="_18" onclick="myfunc(this)">
+			<i class="fas fa-chess-rook" id="wh"></i>E</div>
+		</div>
+	</div>
+	<p id="move">WHITE's TURN</p><br><br><br><br>
+	<p><button onclick="window.location.reload()">RESTART</button></p>
+	<script type="text/javascript">
+		var iDb=[];
+		var iDr=[];
+		var iD;
+		var selected=false;
+		var lower=["k","q","e","n","b","p"];
+		var upper=["K","Q","E","N","B","P"];
+		var turn =true;
+
+		function reset(){
+			var x=document.getElementsByClassName("a");
+			var y=document.getElementsByClassName("b");
+
+			for(var i=0;i<x.length;i++){
+				x[i].style.backgroundColor="brown";
+			}
+			for(var i=0;i<y.length;i++){
+				y[i].style.backgroundColor="coral";
+			}
+		}
+		function myfunc(x){
+				if(selected==true){
+					let a=x.id;
+					if(iDb.indexOf(a)<0 && iDr.indexOf(a)<0 ){
+							reset();
+					}
+					else{
+						if(iDb.indexOf(a)>=0){
+							var i=iDb.indexOf(a);
+							document.getElementById(a).innerHTML=(document.getElementById(iD).innerHTML);
+							document.getElementById(iD).innerHTML='';
+							if(turn==true)
+							document.getElementById("move").innerHTML="BLACK's TURN";
+							else
+							document.getElementById("move").innerHTML="WHITE's TURN";
+							turn=!turn;
+						}
+						else{
+							var i=iDr.indexOf(a);
+							document.getElementById(iDr[i]).innerHTML=(document.getElementById(iD).innerHTML);
+							document.getElementById(iD).innerHTML='';
+							if(turn==true)
+							document.getElementById("move").innerHTML="BLACK's TURN";
+							else
+							document.getElementById("move").innerHTML="WHITE's TURN";
+							turn=!turn;
+						}
+					}
+					reset();
+					selected=false;
+					iDb=[];
+					iDr=[];
+				}
+				else{
+					var a=x.id;
+					if(lower.indexOf(x.innerText)>=0 && turn==true)
+						alert("It's White's Turn");
+					else if(upper.indexOf(x.innerText)>=0 && turn==false)
+						alert("It's Black's Turn");
+					else{
+						selected=true;
+						iD=a;
+						if(x.innerText=='K'){
+							var p=a[0],q=a[1],r=a[2];
+							var dx=[1, 1, 1, -1, -1, -1, 0, 0];
+							var dy=[0, -1, 1, -1, 0, 1, 1, -1];
+							for(var i=0;i<8;i++){
+								var s=p+(q-'0'+dx[i])+(r-'0'+dy[i]);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									}
+								}
+							}
+						}
+						else if(x.innerText=='Q'){
+							var p=a[0],q=a[1],r=a[2];
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'+i)+(r);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q)+(r-'0'+i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'-i)+(r);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q)+(r-'0'-i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'+i)+(r-'0'+i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'+i)+(r-'0'-i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'-i)+(r-'0'+i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'-i)+(r-'0'-i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+						}
+						else if(x.innerText=='N'){
+							var p=a[0],q=a[1],r=a[2];
+							var dx=[1, 1, 2, -2, -1, -1, -2, 2];
+							var dy=[2, -2, 1, 1, 2, -2, -1, -1];
+							for(var i=0;i<8;i++){
+								var s=p+(q-'0'+dx[i])+(r-'0'+dy[i]);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									}
+								}
+							}
+						}
+						else if(x.innerText=='P'){
+							var p=a[0],q=a[1],r=a[2];
+							var s2=p+(q-'0'+1)+(r-'0'-1);
+							var s3=p+(q-'0'-1)+(r-'0'-1);
+							for(var i=1;i<3;i++){
+								var s=p+q+(r-'0'-i);
+								var t=document.getElementById(s);
+								if(s.length==3 && s[2]!='0' && t.innerHTML==''){
+									if((i==2 && r=='7') || i==1){
+										t.style.background="skyblue";
+										iDb.push(s);
+									}
+								}
+							}
+							if(s2.length==3 && s2[1]!='0' && s2[2]!='0' && s2[1]!='9' && s2[2]!='9'){
+									var t=document.getElementById(s2);
+									if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s2);
+									}
+							}
+							if(s3.length==3 && s3[1]!='0' && s3[2]!='0' && s2[1]!='9' && s2[2]!='9'){
+									var t=document.getElementById(s3);
+									if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s3);
+									}
+							}
+						}
+						else if(x.innerText=='B'){
+							var p=a[0],q=a[1],r=a[2];
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'+i)+(r-'0'+i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'+i)+(r-'0'-i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'-i)+(r-'0'+i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'-i)+(r-'0'-i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+						}
+						else if(x.innerText=='E'){
+							var p=a[0],q=a[1],r=a[2];
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'+i)+(r);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q)+(r-'0'+i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'-i)+(r);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q)+(r-'0'-i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(lower.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+						}
+						if(x.innerText=='k'){
+							var p=a[0],q=a[1],r=a[2];
+							var dx=[1, 1, 1, -1, -1, -1, 0, 0];
+							var dy=[0, -1, 1, -1, 0, 1, 1, -1];
+							for(var i=0;i<8;i++){
+								var s=p+(q-'0'+dx[i])+(r-'0'+dy[i]);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									}
+								}
+							}
+						}
+						else if(x.innerText=='q'){
+							var p=a[0],q=a[1],r=a[2];
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'+i)+(r);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q)+(r-'0'+i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'-i)+(r);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q)+(r-'0'-i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'+i)+(r-'0'+i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'+i)+(r-'0'-i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'-i)+(r-'0'+i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'-i)+(r-'0'-i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+						}
+						else if(x.innerText=='n'){
+							var p=a[0],q=a[1],r=a[2];
+							var dx=[1, 1, 2, -2, -1, -1, -2, 2];
+							var dy=[2, -2, 1, 1, 2, -2, -1, -1];
+							for(var i=0;i<8;i++){
+								var s=p+(q-'0'+dx[i])+(r-'0'+dy[i]);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									}
+								}
+							}
+						}
+						else if(x.innerText=='p'){
+							var p=a[0],q=a[1],r=a[2];
+							var s2=p+(q-'0'-1)+(r-'0'+1);
+							var s3=p+(q-'0'+1)+(r-'0'+1);
+							for(var i=1;i<3;i++){
+								var s=p+q+(r-'0'+i);
+								var t=document.getElementById(s);
+								if(s.length==3 && s[2]!='9' && t.innerHTML==''){
+									if((i==2 && r=='2') || i==1){
+										t.style.background="skyblue";
+										iDb.push(s);
+									}
+								}
+							}
+							if(s2.length==3 && s2[1]!='0' && s2[2]!='0' && s2[1]!='9' && s2[2]!='9'){
+									var t=document.getElementById(s2);
+									if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s2);
+									}
+							}
+							if(s3.length==3 && s3[1]!='0' && s3[2]!='0' && s2[1]!='9' && s2[2]!='9'){
+									var t=document.getElementById(s3);
+									if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s3);
+									}
+							}
+						}
+						else if(x.innerText=='b'){
+							var p=a[0],q=a[1],r=a[2];
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'+i)+(r-'0'+i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'+i)+(r-'0'-i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'-i)+(r-'0'+i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'-i)+(r-'0'-i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+						}
+						else if(x.innerText=='e'){
+							var p=a[0],q=a[1],r=a[2];
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'+i)+(r);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q)+(r-'0'+i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q-'0'-i)+(r);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+							for(var i=1;i<8;i++){
+								var s=p+(q)+(r-'0'-i);
+								if(s.length==3 && s[1]!='0' && s[2]!='0' && s[1]!='9' && s[2]!='9'){
+									var t=document.getElementById(s);
+									if(t.innerHTML==''){
+									t.style.background="skyblue";
+									iDb.push(s);
+									}
+									else if(upper.indexOf(t.innerText)>=0){
+									t.style.background="red";
+									iDr.push(s);
+									break;
+									}
+									else
+									break;
+								}
+							}
+						}
+					}
+				}
+			}
+	</script>
+
+</body>
+</html>
