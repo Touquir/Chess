@@ -7,8 +7,8 @@ var upper=["K","Q","E","N","B","P"];
 var turn =true;
 
 function reset(){
-var x=document.getElementsByClassName("a");
-var y=document.getElementsByClassName("b");
+var x = document.getElementsByClassName("a");
+var y = document.getElementsByClassName("b");
 
 for(var i=0;i<x.length;i++){
 	x[i].style.backgroundColor="brown";
